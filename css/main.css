@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    background-color: #b9b9b9;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#background {
+    background-image: url("../images/background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    filter: blur(5px);
+}
+
+#profile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#icon > img {
+    width: 300px;
+    max-width: 100%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 5px solid gray;
+    transition: border 0.5s;
+}
+
+#icon > img:hover {
+    border: 5px solid #0099ff;
+}
+
+#links {
+    font-size: 0;
+}
+
+#links > a {
+    visibility: hidden;
+    margin: 2px;
+}
+
+#links > a > div {
+    padding: 10px;
+    border-radius: 99px;
+    border: 2px solid black;
+    display: inline-block;
+    visibility: visible;
+    transition: background-color 0.5s;
+}
+
+#links > a > div:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#links > a > div > img {
+    width: 30px;
+}
