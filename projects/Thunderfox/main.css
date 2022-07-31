@@ -1,0 +1,106 @@
+body {
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    body {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    body {
+        max-width: 1320px;
+    }
+}
+
+
+
+body {
+    background-color: #f9f9fb;
+    color: #15141a;
+    font-family: 'Noto Sans';
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1c1b22;
+        color: #fbfbfe;
+    }
+}
+
+
+
+header {
+    top: 0;
+    position: fixed;
+    z-index: 1;
+}
+
+#content > .panel {
+    height: 100%;
+    position: relative;
+}
+
+#content > .panel > .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+a.primary-button {
+    padding-inline: 18px;
+    padding-block: 15px;
+    display: inline-block;
+    background-color: #1a73e8;
+    border-radius: 18px;
+    color: #f9f9fb;
+    text-decoration: none;
+}
+
+
+.white-icon {
+    display: inline;
+}
+
+.dark-icon {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .white-icon {
+        display: none;
+    }
+
+    .dark-icon {
+        display: inline;
+    }
+}

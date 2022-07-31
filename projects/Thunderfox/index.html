@@ -1,35 +1,55 @@
 <html>
-<head>
-    <meta charset="utf8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thunderfox</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<body>
-    <div id="top">
-        <div class="background"></div>
-        <div class="content">
+    <head>
+        <title>Thunderfox</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+        <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header id="header">
             <h1 class="title">Thunderfox</h1>
-            <h2 class="subtitle">A Simple, highly customizable, and free web browser</h2>
-            <div class="description">
-                Early Beta now available!
-                <div id="download"><a href="https://thunderfox.page.link/download_beta_win_x86_64"><div>Download!</div></a></div>
-                <br>
-                <div class="fatures">
-                    <h2>Features</h2>
-                    <div class="fature">
-                        <h3>MKV format videos can be played!</h3>
-                    </div>
-                    <div class="fature">
-                        <h3>experiment_apis available!</h3>
-                    </div>
-                    <div class="fature">
-                        <h3>theme_experiment available!</h3>
-                    </div>
+        </header>
+        <div id="content">
+            <div class="panel">
+                <div class="content">
+                    <h1 style="font-size: 3rem"><img src="https://raw.githubusercontent.com/typeling1578/Thunderfox/HEAD/browser/branding/release/content/about-logo.svg" style="width: 1.2em;vertical-align: bottom;">Thunderfox</h1>
+                    <h3>A Simple, highly customizable, and free web browser</h3>
+                    <h4>Beta version available!</h4>
+                    <script>
+                        function download() {
+                            let ua = navigator.userAgent;
+                            if (ua.toLowerCase().match("windows") !== null) {
+                                location.href = "https://thunderfox.page.link/download_beta_win_x86_64";
+                            } else if (ua.toLowerCase().match("linux") !== null && ua.toLowerCase().match("android") === null) {
+                                location.href = "https://thunderfox.page.link/download_beta_linux_x86_64";
+                            } else {
+                                alert("Sorry, Thunderfox is not compatible with your operating system.")
+                            }
+                        }
+                    </script>
+                    <a href="javascript:download()" class="primary-button">Download</a>
+                    <img src="">
                 </div>
             </div>
+            <div id="features">
+                <h2>Features</h2>
+                <div class="feature">
+                    <h3><img class="white-icon" src="notifications_active.svg" style="width: 1.4em;vertical-align: bottom;"><img class="dark-icon" src="notifications_active_dark.svg" style="width: 1.4em;vertical-align: bottom;"> Sound a notification tone!</h3>
+                    Want to sound a notification? Thunderfox can do it!
+                </div>
+                <div class="feature">
+                    <h3><img class="white-icon" src="movie.svg" style="width: 1.4em;vertical-align: bottom;"><img class="dark-icon" src="movie_dark.svg" style="width: 1.4em;vertical-align: bottom;"> Matroska Video supported!</h3>
+                    Want to play Matroska format videos? Thunderfox supports it!
+                </div>
+                <div class="feature">
+                    <h3><img class="white-icon" src="extension.svg" style="width: 1.4em;vertical-align: bottom;"><img class="dark-icon" src="extension_dark.svg" style="width: 1.4em;vertical-align: bottom;"> Legacy-addons & userChrome.js supported!</h3>
+                    Want to use legacy add-ons or userChrome.js? They're available in Thunderfox!
+                </div>
+                <div class="feature">
+                    <h3><img class="white-icon" src="code.svg" style="width: 1.4em;vertical-align: bottom;"><img class="dark-icon" src="code_dark.svg" style="width: 1.4em;vertical-align: bottom;"> experiment_apis & theme_experiment available! (Allow per add-on or theme)</h3>
+                </div>
+            </div>
+            <br><br><br><br>
         </div>
-        <small class="copyright">&copy; 2022 typeling1578</small>
-    </div>
-</body>
+    </body>
 </html>
