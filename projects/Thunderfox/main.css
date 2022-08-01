@@ -74,6 +74,14 @@ header {
     transform: translate(-50%, -50%);
 }
 
+#features > .feature {
+    margin-left: 0.5em;
+}
+
+#features > .feature > .description {
+    margin-left: 1em;
+}
+
 
 
 a.primary-button {
