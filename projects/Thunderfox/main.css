@@ -108,3 +108,12 @@ a.primary-button {
         display: inline;
     }
 }
+
+
+footer {
+    text-align: right;
+}
+
+footer a {
+    color: inherit;
+}
