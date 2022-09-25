@@ -119,18 +119,20 @@ header > .title {
     width: fit-content;
 }
 
-#features > .content {
+
+
+.tile > h2 {
+    text-align: center;
+
+}
+
+.tile > .content {
     display: grid;
     grid-template-columns: repeat(auto-fill, calc(300px + 0.5em + 0.5em));
     justify-content: center;
 }
 
-#features > h2 {
-    text-align: center;
-
-}
-
-#features > .content > .feature {
+.tile > .content > div {
     font-size: 1rem;
     margin: 0.5em;
     width: 300px;
@@ -147,11 +149,11 @@ header > .title {
     box-shadow: 0 0 2px gray;
 }
 
-#features > .content > .feature > h3 {
+.tile > .content > div > h3 {
     font-weight: 500;
 }
 
-#features > .content > .feature > h3 > img {
+.tile > .content > div > h3 > img {
     width: 1.4em;
     vertical-align: bottom;
 }
