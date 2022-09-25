@@ -158,6 +158,31 @@ header > .title {
 
 
 
+#download-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: gray;
+    padding: 5%;
+    z-index: 1;
+    border-radius: 20px;
+    box-shadow: 0 0 8px gray;
+    background-color: #f9f9fb;
+}
+
+@media (prefers-color-scheme: dark) {
+    #download-popup {
+        background-color: #1c1b22;
+    }
+}
+
+#download-popup > .download-select {
+    font-size: 1.2em;
+}
+
+
+
 a.primary-button {
     padding-inline: 18px;
     padding-block: 15px;

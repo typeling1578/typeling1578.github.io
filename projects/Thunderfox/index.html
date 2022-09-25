@@ -16,18 +16,6 @@
                     <h1 style="font-size: 3rem"><img src="images/logo.svg" style="width: 1.2em;vertical-align: bottom;">Thunderfox</h1>
                     <h3>A Simple, highly customizable, and free web browser</h3>
                     <h4>Beta version available!</h4>
-                    <script>
-                        function download() {
-                            let ua = navigator.userAgent;
-                            if (ua.toLowerCase().match("windows") !== null) {
-                                location.href = "https://thunderfox.page.link/download_beta_win_x86_64";
-                            } else if (ua.toLowerCase().match("linux") !== null && ua.toLowerCase().match("android") === null) {
-                                location.href = "https://thunderfox.page.link/download_beta_linux_x86_64";
-                            } else {
-                                alert("Sorry, Thunderfox is not compatible with your operating system.")
-                            }
-                        }
-                    </script>
                     <a href="javascript:download()" class="primary-button">Download</a>
                     <img src="">
                 </div>
@@ -94,5 +82,62 @@
             </footer>
             <br><br>
         </div>
+        <div id="download-popup" style="display: none">
+            <h2>Download</h2>
+            Platform: <select class="download-select">
+                <option value="">--Please choose a platform--</option>
+                <option value="windows-64">Windows 64bit</option>
+                <!--<option value="windows-arm64">Windows ARM64</option>-->
+                <option value="linux-64">Linux 64bit</option>
+                <option value="linux-arm64">Linux ARM64</option>-
+                <!--<option value="android-arm64-v8a">Android ARM64</option>-->
+                <!--<option value="mac-universal">Mac</option>-->
+            </select>
+            <br>
+            <br>
+            <a href="" class="download-button-popup primary-button">Download</a>
+        </div>
+        <script>
+            function download() {
+                let ua = navigator.userAgent;
+                let initial_value;
+                if (ua.toLowerCase().match("windows") !== null) {
+                    initial_value = "windows-64";
+                } else if (ua.toLowerCase().match("linux") !== null && ua.toLowerCase().match("android") === null) {
+                    if (ua.toLowerCase().match("x86_64")) {
+                        initial_value = "linux-64";
+                    } else if (ua.toLowerCase().match("aarch64")) {
+                        initial_value = "linux-arm64";
+                    } else {
+                        initial_value = "linux-64";
+                    }
+                } else {
+                    initial_value = "";
+                }
+                document.querySelector("#download-popup").style.display = "block";
+                document.querySelector(".download-select").value = initial_value;
+            }
+            document.querySelector(".download-button-popup").addEventListener("click", function(e){
+                e.preventDefault();
+                let selected = document.querySelector(".download-select").value;
+                switch (selected) {
+                    case "windows-64":
+                        location.href = "https://thunderfox.page.link/download_beta_win_x86_64";
+                        document.querySelector("#download-popup").style.display = "none";
+                        break;
+                    case "linux-64":
+                        location.href = "https://thunderfox.page.link/download_beta_linux_x86_64";
+                        document.querySelector("#download-popup").style.display = "none";
+                        break;
+                    case "linux-arm64":
+                        location.href = "https://thunderfox.page.link/download_beta_linux_aarch64";
+                        document.querySelector("#download-popup").style.display = "none";
+                        break;
+                    default:
+                        alert("Please choose a platform");
+                        break;
+                }
+            })
+        </script>
     </body>
 </html>
