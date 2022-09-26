@@ -133,6 +133,12 @@ header > .title {
 
 
 
+.tile {
+    max-width: calc(100% - 10vw);
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .tile > h2 {
     text-align: center;
 
