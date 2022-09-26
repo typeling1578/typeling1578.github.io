@@ -121,6 +121,18 @@ header > .title {
 
 
 
+#safety > h2 {
+    text-align: center;
+}
+
+#safety > .content {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
 .tile > h2 {
     text-align: center;
 
