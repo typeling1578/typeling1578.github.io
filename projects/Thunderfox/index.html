@@ -30,7 +30,7 @@
                     </div>
                     -->
                     <div class="feature">
-                        <h3><img class="white-icon" src="images/movie.svg"><img class="dark-icon" src="images/movie_dark.svg"> Matroska Video supported!</h3>
+                        <h3><img class="white-icon" src="images/movie.svg"><img class="dark-icon" src="images/movie_dark.svg"> <span class="title">Matroska Video supported!</span></h3>
                         <div class="description">Want to play Matroska format videos? Thunderfox supports it!</div>
                         <br>
                         <img style="width: 100%;border-radius: 8px;" src="images/mkv-supported.webp"></img>
@@ -42,12 +42,12 @@
                     </div>
                     -->
                     <div class="feature">
-                        <h3><img class="white-icon" src="images/code.svg"><img class="dark-icon" src="images/code_dark.svg"> experiment_apis & theme_experiment available! (Allow per add-on or theme)</h3>
+                        <h3><img class="white-icon" src="images/code.svg"><img class="dark-icon" src="images/code_dark.svg"> <span class="title">experiment_apis & theme_experiment available! (Allow per add-on or theme)</span></h3>
                         <br>
                         <img style="width: 100%;border-radius: 8px;" src="images/experimental-apis.webp"></img>
                     </div>
                     <div class="feature">
-                        <h3><img class="white-icon" src="images/code.svg"><img class="dark-icon" src="images/code_dark.svg"> userChrome.css separated by directory</h3>
+                        <h3><img class="white-icon" src="images/code.svg"><img class="dark-icon" src="images/code_dark.svg"> <span class="title">userChrome.css separated by directory</span></h3>
                         <br>
                         <img style="width: 100%;border-radius: 8px;" src="images/userChromeCSS.webp"></img>
                     </div>
@@ -58,13 +58,13 @@
                 <h2>Dedicated add-ons</h2>
                 <div class="content">
                     <div class="dedicated-addon">
-                        <h3><img class="white-icon" src="images/extension.svg"><img class="dark-icon" src="images/extension_dark.svg"> NewTab Background Image</h3>
+                        <h3><img class="white-icon" src="images/extension.svg"><img class="dark-icon" src="images/extension_dark.svg"> <span class="title">NewTab Background Image</span></h3>
                         <div class="description">This add-on displays a beautiful background on new tabs.</div>
                         <br>
                         <img style="width: 100%;border-radius: 8px;" src="images/newtab-background-image.webp"></img>
                     </div>
                     <div class="dedicated-addon">
-                        <h3><img class="white-icon" src="images/extension.svg"><img class="dark-icon" src="images/extension_dark.svg"> Search by Image</h3>
+                        <h3><img class="white-icon" src="images/extension.svg"><img class="dark-icon" src="images/extension_dark.svg"> <span class="title">Search by Image</span></h3>
                         <div class="description">Search Google Lens for Image</div>
                         <br>
                         <img style="width: 100%;border-radius: 8px;" src="images/search-by-image.webp"></img>
@@ -150,6 +150,51 @@
                         break;
                 }
             })
+        </script>
+        <script src="translateUtil.js"></script>
+        <script>
+            // translate
+            {
+                const language = navigator.languages[0];
+                const base_url = `https://translate.googleapis.com/translate_a/t?anno=3&client=te&v=1.0&format=html&sl=en&tl=${language}&tk=`;
+                const targets = [
+                    "#content > .panel > .content > h3",
+                    "#content > .panel > .content > h4",
+                    "#features > h2",
+                    "#features > .content > .feature > h3 > .title",
+                    "#features > .content > .feature > .description",
+                    "#dedicated-addons > h2",
+                    "#dedicated-addons > .content > .dedicated-addon > .description",
+                    "#safety > h2",
+                    "#safety > .content",
+                ]
+                let target_elems = document.querySelectorAll(targets.join(", "));
+                for (let target_elem of target_elems) {
+                    (async() => {
+                        let text = target_elem.innerHTML;
+                        let text_ = "<pre>" + text + "</pre>";
+                        let query = "q=" + encodeURIComponent(text_);
+                        let tk = calcHash(text_, googleTranslateTKK);
+                        let result = await fetch(base_url + tk, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/x-www-form-urlencoded",
+                            },
+                            body: query
+                        });
+                        let json = await result.json();
+                        let result_text = json[0].match(/<pre>(.*)<\/pre>/s)[1];
+                        let doc = new DOMParser().parseFromString(result_text, "text/html");
+                        for (let elem of doc.querySelectorAll("i")) {
+                            elem.remove();
+                        }
+                        for (let elem of doc.querySelectorAll("b")) {
+                            elem.outerHTML = elem.innerHTML;
+                        }
+                        target_elem.innerHTML = doc.body.innerHTML;
+                    })();
+                }
+            }
         </script>
     </body>
 </html>
