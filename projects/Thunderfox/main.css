@@ -134,7 +134,7 @@ header > .title {
 
 
 .tile {
-    max-width: calc(100% - 5vw);
+    max-width: calc(100% - 5%);
     margin-left: auto;
     margin-right: auto;
 }
