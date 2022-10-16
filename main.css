@@ -1,0 +1,161 @@
+body {
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    body {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    body {
+        max-width: 1320px;
+    }
+}
+
+
+
+body {
+    background-color: #f9f9fb;
+    color: #15141a;
+    font-family: 'Noto Sans';
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1c1b22;
+        color: #fbfbfe;
+    }
+}
+
+
+
+#content > .panel {
+    margin-top: 8em;
+    margin-bottom: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    text-align: center;
+}
+
+#content > .panel > .content > .icon {
+    border-radius: 100%;
+    width: 300px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+
+
+.tile {
+    max-width: calc(100% - 5%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tile > h2 {
+    text-align: center;
+
+}
+
+.tile > .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, calc(300px + 0.5em + 0.5em));
+    justify-content: center;
+}
+
+.tile > .content > div {
+    font-size: 1rem;
+    margin: 0.5em;
+    width: 300px;
+    /*height: 300px;*/
+    background-color: rgba(128,128,128,0.1);
+    display: inline-block;
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    word-wrap: anywhere;
+    /*box-shadow: 0 0 2px gray;*/
+}
+
+.tile > .content > div > h3 {
+    font-weight: 500;
+    margin: 0;
+}
+
+.tile > .content > div > h3 > img {
+    width: 1.4em;
+    vertical-align: bottom;
+}
+
+.tile > .content > div > .description-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+
+
+a.primary-button {
+    padding-inline: 18px;
+    padding-block: 15px;
+    display: inline-block;
+    background-color: #1a73e8;
+    border-radius: 18px;
+    color: #f9f9fb;
+    text-decoration: none;
+}
+
+
+.white-icon {
+    display: inline;
+}
+
+.dark-icon {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .white-icon {
+        display: none;
+    }
+
+    .dark-icon {
+        display: inline;
+    }
+}
+
+
+footer {
+    text-align: right;
+}
+
+footer a {
+    color: inherit;
+}
