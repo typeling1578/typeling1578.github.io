@@ -6,7 +6,17 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="main.css">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let elem = document.createElement("link");
+                elem.rel = "stylesheet";
+                elem.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css";
+                document.head.appendChild(elem);
+            });
+        </script>
+        <noscript>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+        </noscript>
     </head>
     <body>
         <div id="content">
