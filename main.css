@@ -68,7 +68,7 @@ body {
 #content > .panel > .content > .icon {
     border-radius: 100%;
     border: 2px solid gray;
-    width: 300px;
+    width: 150px;
     max-width: 100%;
     aspect-ratio: 1 / 1;
 }
