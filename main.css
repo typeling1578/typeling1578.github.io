@@ -140,6 +140,17 @@ a.primary-button {
     text-decoration: none;
 }
 
+.external-links {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.brand-logo {
+    width: 1em;
+    height: 1em;
+}
+
 
 .white-icon {
     display: inline;
