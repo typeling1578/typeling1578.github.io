@@ -151,14 +151,6 @@ a.primary-button {
     height: 1em;
 }
 
-.external-links > a:hover > .brand-logo > .fa-x-twitter {
-    display: none;
-}
-
-.external-links > a:not(:hover) > .brand-logo > .fa-twitter {
-    display: none;
-}
-
 
 .white-icon {
     display: inline;
